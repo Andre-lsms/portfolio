@@ -5,7 +5,7 @@ function Footer() {
   const maxChars = 1000;
 
   return (
-    <footer className="flex flex-col justify-center items-center bg-primary text-white py-16 px-4 space-y-10">
+    <footer className="flex flex-col justify-center items-center bg-primary text-white p-10 space-y-10">
       <h1 className="text-3xl font-semibold">Entre em contato</h1>
 
       <form className="flex flex-col space-y-4 w-full max-w-xl">
