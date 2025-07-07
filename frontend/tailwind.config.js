@@ -14,6 +14,10 @@ module.exports = {
         offwhite: '#F8F3ED',
         
       },
+      fontFamily: {
+        'sans': ['Montserrat', 'sans-serif'], 
+        'titulo': ['Barlow', 'sans-serif'] 
+      }
     },
   },
   plugins: [],
