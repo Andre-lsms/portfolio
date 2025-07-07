@@ -10,7 +10,7 @@ function Header() {
   };
 
   return (
-    <header className="h-28 bg-primary flex items-center justify-between px-20 relative">
+    <header className="w-full h-28 bg-primary flex items-center justify-between px-6 md:px-20">
       <img
         src="/logo.webp"
         alt="logotipo da marca"

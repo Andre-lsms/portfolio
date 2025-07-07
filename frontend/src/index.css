@@ -26,6 +26,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  /* * {
+  outline: 1px solid red;
+} */
+
 
   a {
     font-weight: 500;
@@ -39,7 +43,8 @@
   body {
     display: flex;
     place-items: center;
-    width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
     min-height: 100vh;
   }
 

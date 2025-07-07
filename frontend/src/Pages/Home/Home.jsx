@@ -1,12 +1,12 @@
-import Card from "../Components/Card/Card";
+import Carrosel from "../../Components/Carrosel/Carrosel";
 
 function Home() {
   return (
     <div>
-      <div className="bg-secondary pt-10 min-h-screen ">
+      <div className="bg-secondary pt-10  ">
         <div className="relative items-center flex flex-col mx-10">
           {/* Container principal com largura responsiva */}
-          <div className="relative z-10 bg-offwhite w-full max-h-[800px] p-6 min-h-[600px] rounded-lg shadow-lg flex flex-col items-center justify-center ">
+          <div className="relative z-10 bg-offwhite w-full max-h-[800px] p-6 min-h-[600px] rounded-lg shadow-lg flex flex-col items-center justify-center mx-10 ">
             {/* Texto com largura responsiva e padding lateral */}
             <div className="w-full max-w-[500px] px-4">
               <h1 className="text-4xl sm:text-5xl md:text-7xl text-primary mb-10">
@@ -40,11 +40,8 @@ function Home() {
       <div className="flex flex-col items-center bg-primary">
         <h1 className="text-offwhite">Alguns posts</h1>
         <div className="flex">
-          <Card img={'/posts/post1.jpg'}/>
-          <Card img={'/posts/post1.jpg'}/>
-          <Card img={'/posts/post1.jpg'}/>
-          <Card img={'/posts/post1.jpg'}/>
-          <Card img={'/posts/post1.jpg'}/>
+          <Carrosel></Carrosel>
+
 
         </div>
       </div>

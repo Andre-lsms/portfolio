@@ -1,18 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 function Card({ img }) {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/projetos"); // rota para onde você quer ir
-  };
+    const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="bg-tertiary w-[200px] h-[200px] m-5">
+    <div className="bg-tertiary w-[500px] h-[500px] m-5 items-center flex-col">
       <img
         src={img}
         alt="imagem do card"
-        onClick={handleClick}
-        className=" cursor-pointer"
       />
     </div>
   );

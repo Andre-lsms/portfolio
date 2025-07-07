@@ -1,17 +1,19 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./Home/Home";
-import Layout from "./Layout/Layout";
-import Projects from "./Projects/Projects";
-import ScrollReset from "./Components/ScrollReset/ScrollReset"
+import Home from "./Pages/Home/Home";
+import Layout from "./Pages/Layout/Layout";
+import Projects from "./Pages/Projects/Projects";
+import Contato from "./Pages/Contato/Contato";
+import ScrollReset from "./Pages/ScrollReset";
 function App() {
   return (
     <>
       <BrowserRouter>
-      <ScrollReset/>
+        {/* <ScrollReset /> */}
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home/>} />
-            <Route path="/Projetos" element={<Projects/>} />
+            <Route index element={<Home />} />
+            <Route path="/projetos" element={<Projects />} />
+            <Route path="/contato" element = {<Contato/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
