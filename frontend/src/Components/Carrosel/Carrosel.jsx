@@ -7,18 +7,15 @@ import "swiper/css/effect-coverflow";
 function Carrosel() {
   const imagens = Object.values(
     import.meta.glob("/src/assets/carrosel/*.{jpg,jpeg,png}", { eager: true })
-  ).map((mod) => mod.default);
-
-  // duplica se tiver poucas imagens para o loop
-  const imagensFinal = imagens.length < 5 ? [...imagens, ...imagens] : imagens;
+  ).map((img) => img.default);
 
   return (
-    <div className="w-full max-w-full mx-auto py-10 px-4">
+    <div className="w-full max-w-7xl mx-auto py-10 px-4">
       <Swiper
-        effect={"coverflow"}
+        effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={"auto"}
+        slidesPerView="auto"
         loop={true}
         autoplay={{
           delay: 3000,
@@ -27,18 +24,18 @@ function Carrosel() {
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
-          depth: 200,
+          depth: 100,
           modifier: 2.5,
           slideShadows: true,
         }}
         modules={[EffectCoverflow, Autoplay]}
         className="mySwiper"
-        slideToClickedSlide ={true}
+        slideToClickedSlide={true}
       >
-        {imagensFinal.map((src, index) => (
+        {imagens.map((src, index) => (
           <SwiperSlide
             key={index}
-            className="max-w-fit max-h-fit rounded-xl overflow-hidden shadow-xl flex flex-col items-center justify-center"
+            className="max-w-fit flex items-center justify-center mx-15"
           >
             <Card img={src} />
           </SwiperSlide>
