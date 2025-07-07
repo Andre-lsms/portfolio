@@ -34,7 +34,7 @@ function Home() {
           <h2 className="text-primary text-8xl font-titulo font-bold pb-10 self-center">
             Trajetória
           </h2>
-          <p className="text-4xl text-offwhite font-sans ">
+          <p className="text-2xl text-offwhite font-sans text-justify w-[] ">
             Desde pequeno, sempre tive o impulso de transformar ideias em algo
             visual. Foi ao buscar formas de dar vida aos meus projetos pessoais
             que conheci as ferramentas de design e me encantei com as
