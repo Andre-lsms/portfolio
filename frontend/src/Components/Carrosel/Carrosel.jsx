@@ -10,7 +10,7 @@ function Carrosel() {
   ).map((img) => img.default);
 
   return (
-    <div className=" max-w-7xl mx-auto py-10 px-4">
+    <div className="w-full max-w-7xl mx-auto px-4 py-10">
       <Swiper
         effect="coverflow"
         grabCursor={true}
@@ -20,22 +20,23 @@ function Carrosel() {
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
+          reverseDirection:false,
         }}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
           depth: 100,
           modifier: 2.5,
-          slideShadows: true,
+          slideShadows: false,
         }}
         modules={[EffectCoverflow, Autoplay]}
-        className="mySwiper"
+        className="w-full"
         slideToClickedSlide={true}
       >
         {imagens.map((src, index) => (
           <SwiperSlide
             key={index}
-            className="max-w-fit flex items-center justify-center mx-15"
+            className="!w-[250px] sm:!w-[300px] md:!w-[350px] lg:!w-[400px] flex items-center justify-center"
           >
             <Card img={src} />
           </SwiperSlide>
