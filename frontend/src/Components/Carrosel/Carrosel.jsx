@@ -10,7 +10,7 @@ function Carrosel() {
   ).map((img) => img.default);
 
   return (
-    <div className="w-full max-w-7xl mx-auto py-10 px-4">
+    <div className=" max-w-7xl mx-auto py-10 px-4">
       <Swiper
         effect="coverflow"
         grabCursor={true}

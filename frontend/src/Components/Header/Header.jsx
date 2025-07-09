@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UseOnClickOutside from "../../Hooks/UseOnClickOutside";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const headerRef = useRef(null);
+
+  UseOnClickOutside(headerRef, () => setMenuOpen(false));
 
   const handleClick = () => {
     navigate("/"); // rota para onde você quer ir
   };
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
   return (
-    <header className="w-full h-28 bg-primary flex items-center justify-between px-6 md:px-20">
+    <header ref={headerRef} className="relative w-full h-28 bg-primary flex items-center justify-between px-6 md:px-20">
       <img
         src="/logo.webp"
         alt="logotipo da marca"
@@ -19,7 +29,7 @@ function Header() {
       />
 
       <nav className="hidden md:block">
-        <ul className="flex gap-10 text-white text-lg">
+        <ul className="flex gap-10 text-black text-sm font-sans ">
           <li>
             <a href="/">Home</a>
           </li>
@@ -44,7 +54,7 @@ function Header() {
 
       {menuOpen && (
         <nav className="absolute top-full left-0 w-full bg-primary px-6 py-4 md:hidden z-50">
-          <ul className="flex flex-col gap-4 text-white text-lg items-center">
+          <ul className="flex flex-col gap-4 text-white text-sm font-sans  items-center">
             <li>
               <a href="/">Home</a>
             </li>
