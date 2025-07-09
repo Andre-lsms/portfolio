@@ -32,7 +32,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="bg-offwhite h-[calc(100vh)] w-full border-t-4 border-offwhite ">
+      <div className="bg-offwhite  w-full border-t-4 border-offwhite ">
         <div className="p-10 flex flex-col items-start px-20">
           <h2 className="text-primary text-5xl  sm:text-6xl lg:text-8xl font-titulo font-bold pb-10 self-center">
             Trajetória
