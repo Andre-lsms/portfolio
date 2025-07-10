@@ -40,10 +40,7 @@
     color: #535bf2;
   }
 
-  body {
-    display: flex;
-    place-items: center;
-    overflow-x: hidden;
+  html,body {
     width: 100%;
     min-height: 100vh;
   }
@@ -83,7 +80,7 @@
       color: #747bff;
     }
     button {
-      background-color: #f9f9f9;
+      background-color: #F8F3ED;
     }
   }
 }

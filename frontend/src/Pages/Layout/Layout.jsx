@@ -4,12 +4,12 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen w-screen overflow-x-hidden">
+    <div className="flex flex-col w-full overflow-x-hidden">
       <Header /> {/* Altura fixa definida via Tailwind ou na própria tag */}
-      <main className="flex-1 bg-blue-600 w-full">
+      <main className="flex-1 bg-secondary w-full">
         <Outlet />
       </main>
-      <Footer /> {/* Altura fixa definida via Tailwind ou na própria tag */}
+      <Footer />
     </div>
   );
 };
