@@ -1,81 +1,50 @@
-import { useState } from "react";
+import React from 'react';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
-function Footer() {
-  const [mensagem, setMensagem] = useState("");
-  const maxChars = 1000;
-
+const Footer = () => {
   return (
-    <footer className="flex flex-col justify-center items-center bg-primary text-white p-10 space-y-10 w-full max-w-[100vw] overflow-x-hidden">
-      <h1 className="text-3xl font-semibold">Entre em contato</h1>
-
-      <form className="flex flex-col space-y-4 w-full max-w-xl">
-        <label htmlFor="nome" className="text-sm font-medium">
-          Nome*
-        </label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
-          placeholder="Insira seu nome"
-          maxLength={80}
-          required
-          className="p-3 rounded-md border border-gray-300 text-black"
-        />
-
-        <label htmlFor="email" className="text-sm font-medium">
-          Email*
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Insira seu email"
-          maxLength={254}
-          required
-          className="p-3 rounded-md border border-gray-300 text-black"
-        />
-
-        <label htmlFor="assunto" className="text-sm font-medium">
-          Assunto*
-        </label>
-        <input
-          type="text"
-          id="assunto"
-          name="assunto"
-          placeholder="Insira o assunto"
-          maxLength={120}
-          required
-          className="p-3 rounded-md border border-gray-300 text-black"
-        />
-
-        <label htmlFor="mensagem" className="text-sm font-medium">
-          Mensagem*
-        </label>
-        <textarea
-          id="mensagem"
-          name="mensagem"
-          maxLength={maxChars}
-          rows={6}
-          placeholder="Digite sua mensagem aqui..."
-          required
-          value={mensagem}
-          onChange={(e) => setMensagem(e.target.value)}
-          className="p-3 rounded-md border border-gray-300 text-black resize-none"
-        ></textarea>
-
-        <div className="text-sm text-right text-white">
-          {mensagem.length}/{maxChars}
+    <footer className="bg-primary text-offwhite py-8">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+        
+        {/* Nome / Marca */}
+        <div className="mb-4 md:mb-0 text-center md:text-left">
+          <h1 className="text-xl font-semibold">Seu Nome</h1>
+          <p className="text-sm text-offwhite">Desenvolvedor Front-end</p>
         </div>
 
-        <button
-          type="submit"
-          className="mt-4 bg-white text-primary font-semibold py-2 px-6 rounded-md hover:bg-gray-200 transition"
-        >
-          Enviar
-        </button>
-      </form>
+        {/* Ícones Sociais */}
+        <div className="flex space-x-6 text-xl">
+          <a
+            href="https://github.com/seuusuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-offwhite transition-colors"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com/in/seuusuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-offwhite transition-colors"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="mailto:seuemail@email.com"
+            className="hover:text-offwhite transition-colors"
+          >
+            <FaEnvelope />
+          </a>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="mt-6 text-center text-sm text-offwhite">
+        © {new Date().getFullYear()} Seu Nome. Todos os direitos reservados.
+      </div>
     </footer>
   );
-}
+};
 
 export default Footer;

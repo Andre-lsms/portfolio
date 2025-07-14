@@ -18,9 +18,9 @@ function Carrosel() {
         slidesPerView="auto"
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 3000,
           disableOnInteraction: false,
-          reverseDirection:false,
+          reverseDirection: false,
         }}
         coverflowEffect={{
           rotate: 0,

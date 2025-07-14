@@ -3,7 +3,7 @@ import Home from "./Pages/Home/Home";
 import Layout from "./Pages/Layout/Layout";
 import Projects from "./Pages/Projects/Projects";
 import Contato from "./Pages/Contato/Contato";
-import Servicos from "./Pages/Servicos/Servicos";
+import NotFoundPage from "./Pages/NotFound/NotFound";
 import ScrollReset from "./Pages/ScrollReset";
 function App() {
   return (
@@ -14,9 +14,9 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/projetos" element={<Projects />} />
-            <Route path="/contato" element = {<Contato/>}/>
-            <Route path="/servicos" element = {<Servicos/>}/>
+            <Route path="/contato" element={<Contato />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>
