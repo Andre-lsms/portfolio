@@ -30,7 +30,7 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:seuemail@email.com"
+            href="mailto:contato@asdesign.net.br"
             className="hover:text-offwhite transition-colors"
           >
             <FaEnvelope />
