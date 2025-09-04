@@ -31,11 +31,14 @@ const WhatsappIcon = (props) => (
   </svg>
 );
 
-
-
 function Contato() {
-  const [formData, setFormData] = useState({ name: "", email: "", assunto: "", message: "" });
-  const [status, setStatus] = useState('');
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    assunto: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const maxChars = 1000;
 
@@ -47,23 +50,23 @@ function Contato() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus('');
+    setStatus("");
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        setStatus('success');
+        setStatus("success");
         setFormData({ name: "", email: "", assunto: "", message: "" });
       } else {
-        setStatus('error');
+        setStatus("error");
       }
     } catch (error) {
-      setStatus('error');
+      setStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -74,8 +77,25 @@ function Contato() {
       <div className="w-full max-w-7xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden">
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-2/5 bg-primary text-white p-8 md:p-12 flex flex-col justify-center">
-            {/* ... Coluna da esquerda com as informações de contato ... */}
-          </div>
+<h1 className="font-titulo font-bold text-4xl md:text-5xl mb-4 text-center lg:text-left">
+          Vamos Conversar
+        </h1>
+        <p className="font-sans text-lg leading-relaxed mb-10 text-center lg:text-left">
+          Estou sempre aberto a novas oportunidades. Para propostas de projeto,
+          por favor, utilize o formulário ao lado para garantir que eu tenha
+          todos os detalhes. Para uma pergunta rápida, me chame no WhatsApp!
+        </p>
+        <div className="flex flex-col items-center lg:items-start gap-6">
+          <a
+            href="https://wa.me/5531999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-6 py-3 border-offwhite border-2 rounded-lg font-bold text-offwhite hover:bg-offwhite hover:text-primary transition-colors shadow-md"
+          >
+            <WhatsappIcon className="w-6 h-6" />
+            <span>WhatsApp</span>
+          </a>
+        </div>          </div>
 
           <Form
             formData={formData}
