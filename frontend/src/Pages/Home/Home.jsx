@@ -3,6 +3,11 @@ import ps from "../../assets/icons/ps.png";
 import ai from "../../assets/icons/ai.png";
 import pr from "../../assets/icons/pr.png";
 import ae from "../../assets/icons/ae.png";
+import canva from "../../assets/icons/canva.png";
+import capcut from "../../assets/icons/capcut.png";
+import davinci from "../../assets/icons/davinci.png";
+
+
 import { useNavigate } from "react-router-dom";
 
 function Home() {
@@ -89,6 +94,36 @@ function Home() {
               />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Adobe After Effects
+              </span>
+            </div>
+            <div className="items-center flex flex-col">
+              <img
+                src={capcut}
+                alt="CapCut"
+                className="w-20 sm:w-24 md:w-28"
+              />
+              <span className="text-primary font-sans font-bold pt-3 text-center">
+                CapCut
+              </span>
+            </div>
+            <div className="items-center flex flex-col">
+              <img
+                src={canva}
+                alt="Canva"
+                className="w-20 sm:w-24 md:w-28"
+              />
+              <span className="text-primary font-sans font-bold pt-3 text-center">
+                Canva
+              </span>
+            </div>
+            <div className="items-center flex flex-col">
+              <img
+                src={davinci}
+                alt="Davinci Resolve"
+                className="w-20 sm:w-24 md:w-28"
+              />
+              <span className="text-primary font-sans font-bold pt-3 text-center">
+                Davinci Resolve
               </span>
             </div>
           </div>
