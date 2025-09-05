@@ -55,7 +55,7 @@ function Home() {
             comunicar com clareza e propósito, sempre apoiado pelas ferramentas
             que utilizo para dar vida aos meus projetos:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 justify-items-center w-full pt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 justify-items-center w-full pt-10">
             <div className="items-center flex flex-col">
               <img
                 src={ps}
@@ -136,7 +136,7 @@ function Home() {
         <div className="flex flex-col">
           <Carrosel></Carrosel>
           <button
-            className="shadow shadow-primary self-center h-14 mb-5 text-primary "
+            className="shadow shadow-primary self-center h-14 mb-5 text-primary bg-offwhite "
             onClick={handleClick}
           >
             ver mais

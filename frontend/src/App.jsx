@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Layout from "./Pages/Layout/Layout";
 import Projects from "./Pages/Projects/Projects";
+import ProjectDetail from "./Pages/ProjectDetail/ProjectDetail";
 import Contato from "./Pages/Contato/Contato";
 import NotFoundPage from "./Pages/NotFound/NotFound";
 import ScrollReset from "./Pages/ScrollReset";
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/projetos" element={<Projects />} />
+            <Route path="projetos/:slug" element={<ProjectDetail />} />
             <Route path="/contato" element={<Contato />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
