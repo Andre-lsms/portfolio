@@ -5,8 +5,8 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <div className="flex flex-col w-full overflow-x-hidden">
-      <Header /> {/* Altura fixa definida via Tailwind ou na própria tag */}
-      <main className="flex-1 bg-secondary w-full">
+      <Header />
+      <main className=" bg-secondary w-full pt-28">
         <Outlet />
       </main>
       <Footer />
