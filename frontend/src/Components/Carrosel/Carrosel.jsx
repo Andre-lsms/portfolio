@@ -3,17 +3,19 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-import projectsData from "../../data/projects.json";
+import { useProjects } from '../../Hooks/useProjects'
 
 function ProjectsCarousel() {
-  const imagensParaCarrossel = projectsData.map((projeto) => {
-    const primeiraImagemPath = projeto.entregas[0];
-    const imageUrl = `${primeiraImagemPath}`;
-    return {
-      src: imageUrl,
-      alt: `Imagem do projeto ${projeto.titulo}`,
-    };
-  });
+  const { projects, loading, error } = useProjects();
+
+  if (loading) return <div className="text-center py-20">Carregando...</div>;
+  if (error)
+    return <div className="text-center py-20 text-red-500">Erro: {error}</div>;
+
+  const imagensParaCarrossel = projects.map((project) => ({
+    src: project.thumb_url,
+    alt: `Imagem do projeto ${project.title}`,
+  }));
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-10">
@@ -22,7 +24,6 @@ function ProjectsCarousel() {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView="auto"
-        loopedSlides={imagensParaCarrossel.length} // força a quantidade de slides clonados
         loop={true}
         autoplay={{
           delay: 3000,
@@ -42,7 +43,7 @@ function ProjectsCarousel() {
         {imagensParaCarrossel.map((imagem, index) => (
           <SwiperSlide
             key={index}
-            className="!w-[250px] sm:!w-[300px] md:!w-[350px] lg:!w-[400px] flex items-center justify-center rounded-xl overflow-hidden"
+            className="!w-[250px] sm:!w-[300px] md:!w-[350px] lg!w-[400px] flex items-center justify-center rounded-xl overflow-hidden"
           >
             <img
               src={imagem.src}
