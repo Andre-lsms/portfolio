@@ -1,30 +1,40 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient'; // Ajuste o caminho
+import { useState, useEffect } from "react";
+import { supabase } from "../lib/supabaseClient"; // Ajuste o caminho
 
-export function useProjectDetail(slug) {
+export function useProjectDetail(id_project) {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!slug) return;
+    if (!id_project) return;
 
     async function fetchProjectDetail() {
       try {
         setLoading(true);
-        // Busca um único projeto pelo slug e todas as suas mídias relacionadas
+
         const { data, error } = await supabase
-          .from('projetos')
+          .from("projects") // 👈 faltava a tabela
           .select(`
-            *,
-            midias:media (*)
+            id,
+            title,
+            description,
+            media (
+              id,
+              type,
+              url
+            )
           `)
-          .eq('slug', slug)
-          .single(); // .single() garante que o resultado seja um único objeto
+          .eq("id", id_project)
+          .single();
 
         if (error) throw error;
 
-        setProject(data);
+        // Normaliza para "midias", compatível com seu componente
+        setProject({
+          ...data,
+          midias: data.media || []
+        });
       } catch (err) {
         setError(err.message);
       } finally {
@@ -33,7 +43,7 @@ export function useProjectDetail(slug) {
     }
 
     fetchProjectDetail();
-  }, [slug]);
+  }, [id_project]);
 
   return { project, loading, error };
 }

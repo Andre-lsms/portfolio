@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useProjects } from "../../Hooks/useProjects"; // Verifique o caminho do seu hook
+import { useProjects } from "../Hooks/useProjects"; // Verifique o caminho do seu hook
 
 function Projects() {
   const { projects, loading, error } = useProjects();
@@ -12,7 +12,7 @@ function Projects() {
         Erro ao carregar os projetos: {error}
       </div>
     );
-
+  ("");
   return (
     <div className="bg-offwhite min-h-[calc(100vh-7rem)] py-16 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
@@ -34,7 +34,7 @@ function Projects() {
                 <div className="group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                   <div className="w-full h-80 overflow-hidden">
                     <img
-                      src={project.thumb_url}
+                      src={project.first_media_url}
                       alt={`Capa do projeto ${project.title}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

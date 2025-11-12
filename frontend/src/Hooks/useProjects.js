@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
-
 import { supabase } from "../lib/supabaseClient";
+
+function slugify(id, text) {
+  return (id + " " + text)
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
 
 export function useProjects() {
   const [projects, setProjects] = useState([]);
-
   const [loading, setLoading] = useState(true);
-
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,49 +23,36 @@ export function useProjects() {
       try {
         setLoading(true);
 
+        // Agora puxa APENAS a tabela projects + suas mídias ordenadas
         const { data, error } = await supabase.from("projects").select(`
-
-id,
-
-title,
-
-description,
-
-thumb:thumb!id_project (
-
-id,
-
-media:media!id_media (
-
-url
-
-)
-
-),
-
-media (
-
-id,
-
-type,
-
-url
-
-)
-
-`);
+            id,
+            title,
+            description,
+            media (
+              id,
+              type,
+              url,
+              number_sort
+            )
+          `);
 
         if (error) throw error;
 
-        console.log("DATA:", data);
+        // Ordenar as mídias pelo number_sort no frontend,
+        // caso o Supabase não garanta essa ordenação automaticamente.
+        const formattedProjects = data.map((project) => {
+          const sortedMedias = (project.media || []).sort(
+            (a, b) => (a.number_sort || 0) - (b.number_sort || 0)
+          );
 
-        const formattedProjects = data.map((project) => ({
-          ...project,
-
-          thumb_url: project.thumb?.media?.url || null,
-
-          medias: project.media || [],
-        }));
+          return {
+            ...project,
+            slug: slugify(project.id, project.title),
+            medias: sortedMedias, // mídias já ordenadas
+            first_media: sortedMedias[0] || null,
+            first_media_url: sortedMedias[0]?.url || null,
+          };
+        });
 
         setProjects(formattedProjects);
       } catch (err) {
