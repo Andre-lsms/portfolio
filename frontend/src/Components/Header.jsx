@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import UseOnClickOutside from "../../Hooks/UseOnClickOutside";
 
 function Header() {
   const navigate = useNavigate();

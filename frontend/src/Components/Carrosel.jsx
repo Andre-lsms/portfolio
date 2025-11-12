@@ -3,7 +3,7 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-import { useProjects } from '../../Hooks/useProjects'
+import { useProjects } from "../Hooks/useProjects";
 
 function ProjectsCarousel() {
   const { projects, loading, error } = useProjects();
@@ -13,7 +13,7 @@ function ProjectsCarousel() {
     return <div className="text-center py-20 text-red-500">Erro: {error}</div>;
 
   const imagensParaCarrossel = projects.map((project) => ({
-    src: project.thumb_url,
+    src: project.first_media_url,
     alt: `Imagem do projeto ${project.title}`,
   }));
 

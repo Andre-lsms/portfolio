@@ -2,7 +2,7 @@
 
 import { Link } from 'react-router-dom';
 
-function NotFoundPage() {
+function notFoundPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-offwhite text-center px-4">
       <h1 className="text-8xl font-bold font-titulo text-primary">404</h1>
@@ -22,4 +22,4 @@ function NotFoundPage() {
   );
 }
 
-export default NotFoundPage;
+export default notFoundPage;
