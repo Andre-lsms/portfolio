@@ -4,6 +4,7 @@ import Layout from "./Components/Layout";
 import Projects from "./Pages/Projects";
 import ProjectDetail from "./Pages/projectDetail";
 import Contato from "./Pages/Contato";
+import Sobre from "./Pages/Sobre";
 import NotFoundPage from "./Pages/notFound";
 import ScrollReset from "./Pages/scrollReset";
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/projetos" element={<Projects />} />
             <Route path="projetos/:slug" element={<ProjectDetail />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/sobre" element={<Sobre/>} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
