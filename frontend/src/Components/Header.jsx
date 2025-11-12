@@ -41,6 +41,23 @@ function Header() {
           </li>
           <li>
             <NavLink
+              to="/sobre"
+              className={`relative inline-block py-2 text-base md:text-2xl ${linkTextClasses}`}
+            >
+              {({ isActive }) => (
+                <>
+                  Sobre
+                  <span
+                    className={`absolute bottom-0 left-0 h-1 bg-secondary rounded-full transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0"
+                    }`}
+                  ></span>
+                </>
+              )}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/projetos"
               className={`relative inline-block py-2 text-base md:text-2xl ${linkTextClasses}`}
             >
