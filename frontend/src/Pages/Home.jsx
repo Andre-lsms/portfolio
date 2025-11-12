@@ -1,12 +1,12 @@
-import Carrosel from "../../Components/Carrosel/Carrosel";
-import ps from "../../assets/icons/ps.png";
-import ai from "../../assets/icons/ai.png";
-import pr from "../../assets/icons/pr.png";
-import ae from "../../assets/icons/ae.png";
-import canva from "../../assets/icons/canva.png";
-import capcut from "../../assets/icons/capcut.png";
-import davinci from "../../assets/icons/davinci.png";
-
+import Carrosel from "../Components/Carrosel";
+import ps from "../assets/icons/ps.png";
+import ai from "../assets/icons/ai.png";
+import pr from "../assets/icons/pr.png";
+import ae from "../assets/icons/ae.png";
+import canva from "../assets/icons/canva.png";
+import capcut from "../assets/icons/capcut.png";
+import davinci from "../assets/icons/davinci.png";
+import affinity from "../assets/icons/Affinity.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -55,12 +55,12 @@ function Home() {
             comunicar com clareza e propósito, sempre apoiado pelas ferramentas
             que utilizo para dar vida aos meus projetos:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 justify-items-center w-full pt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 justify-items-center w-full pt-10">
             <div className="items-center flex flex-col">
               <img
                 src={ps}
                 alt="Adobe Photoshop"
-                className="w-20 sm:w-24 md:w-28"
+                className="w-20 sm:w-24 md:w-28 rounded-xl "
               />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Adobe Photoshop
@@ -70,7 +70,7 @@ function Home() {
               <img
                 src={ai}
                 alt="Adobe Illustrator"
-                className="w-20 sm:w-24 md:w-28"
+                className="w-20 sm:w-24 md:w-28 rounded-xl "
               />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Adobe Illustrator
@@ -80,7 +80,7 @@ function Home() {
               <img
                 src={pr}
                 alt="Adobe Premiere"
-                className="w-20 sm:w-24 md:w-28"
+                className="w-20 sm:w-24 md:w-28 rounded-xl "
               />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Adobe Premiere
@@ -90,28 +90,20 @@ function Home() {
               <img
                 src={ae}
                 alt="Adobe After Effects"
-                className="w-20 sm:w-24 md:w-28"
+                className="w-20 sm:w-24 md:w-28 rounded-xl "
               />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Adobe After Effects
               </span>
             </div>
             <div className="items-center flex flex-col">
-              <img
-                src={capcut}
-                alt="CapCut"
-                className="w-20 sm:w-24 md:w-28"
-              />
+              <img src={capcut} alt="CapCut" className="w-20 sm:w-24 md:w-28 rounded-xl " />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 CapCut
               </span>
             </div>
             <div className="items-center flex flex-col">
-              <img
-                src={canva}
-                alt="Canva"
-                className="w-20 sm:w-24 md:w-28"
-              />
+              <img src={canva} alt="Canva" className="w-20 sm:w-24 md:w-28 rounded-xl " />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Canva
               </span>
@@ -120,10 +112,20 @@ function Home() {
               <img
                 src={davinci}
                 alt="Davinci Resolve"
-                className="w-20 sm:w-24 md:w-28"
+                className="w-20 sm:w-24 md:w-28 rounded-xl "
               />
               <span className="text-primary font-sans font-bold pt-3 text-center">
                 Davinci Resolve
+              </span>
+            </div>
+            <div className="items-center flex flex-col">
+              <img
+                src={affinity}
+                alt="Affinity"
+                className="w-20 sm:w-24 md:w-28 rounded-xl "
+              />
+              <span className="text-primary font-sans font-bold pt-3 text-center">
+                Affinity
               </span>
             </div>
           </div>
@@ -136,7 +138,7 @@ function Home() {
         <div className="flex flex-col">
           <Carrosel></Carrosel>
           <button
-            className="shadow shadow-primary self-center h-14 mb-5 text-primary "
+            className="shadow shadow-primary self-center h-14 mb-5 text-primary bg-offwhite "
             onClick={handleClick}
           >
             ver mais

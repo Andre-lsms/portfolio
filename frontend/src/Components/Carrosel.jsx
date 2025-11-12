@@ -1,13 +1,21 @@
-import Card from "../Card/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-function Carrosel() {
-  const imagens = Object.values(
-    import.meta.glob("/src/assets/carrosel/*.{jpg,jpeg,png}", { eager: true })
-  ).map((img) => img.default);
+import { useProjects } from "../Hooks/useProjects";
+
+function ProjectsCarousel() {
+  const { projects, loading, error } = useProjects();
+
+  if (loading) return <div className="text-center py-20">Carregando...</div>;
+  if (error)
+    return <div className="text-center py-20 text-red-500">Erro: {error}</div>;
+
+  const imagensParaCarrossel = projects.map((project) => ({
+    src: project.first_media_url,
+    alt: `Imagem do projeto ${project.title}`,
+  }));
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-10">
@@ -20,7 +28,6 @@ function Carrosel() {
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
-          reverseDirection: false,
         }}
         coverflowEffect={{
           rotate: 0,
@@ -33,12 +40,16 @@ function Carrosel() {
         className="w-full"
         slideToClickedSlide={true}
       >
-        {imagens.map((src, index) => (
+        {imagensParaCarrossel.map((imagem, index) => (
           <SwiperSlide
             key={index}
-            className="!w-[250px] sm:!w-[300px] md:!w-[350px] lg:!w-[400px] flex items-center justify-center"
+            className="!w-[250px] sm:!w-[300px] md:!w-[350px] lg!w-[400px] flex items-center justify-center rounded-xl overflow-hidden"
           >
-            <Card img={src} />
+            <img
+              src={imagem.src}
+              alt={imagem.alt}
+              className="w-full h-full object-cover"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -46,4 +57,4 @@ function Carrosel() {
   );
 }
 
-export default Carrosel;
+export default ProjectsCarousel;

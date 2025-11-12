@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-primary text-offwhite py-8">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+      <div className=" mx-auto px-10 flex flex-col md:flex-row items-center justify-between">
         {/* Nome / Marca */}
         <div className="mb-4 md:mb-0 text-center md:text-left">
           <p className="text-sm text-offwhite">Desenvolvido por</p>

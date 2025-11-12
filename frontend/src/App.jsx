@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Layout from "./Pages/Layout/Layout";
-import Projects from "./Pages/Projects/Projects";
-import Contato from "./Pages/Contato/Contato";
-import NotFoundPage from "./Pages/NotFound/NotFound";
-import ScrollReset from "./Pages/ScrollReset";
+import Home from "./Pages/Home";
+import Layout from "./Components/Layout";
+import Projects from "./Pages/Projects";
+import ProjectDetail from "./Pages/projectDetail";
+import Contato from "./Pages/Contato";
+import NotFoundPage from "./Pages/notFound";
+import ScrollReset from "./Pages/scrollReset";
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/projetos" element={<Projects />} />
+            <Route path="projetos/:slug" element={<ProjectDetail />} />
             <Route path="/contato" element={<Contato />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
