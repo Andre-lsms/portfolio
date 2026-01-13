@@ -8,16 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#71562c',
-        secondary: '#c9ae7b',
-        tertiary: '#bb923c',
-        offwhite: '#F8F3ED',
-        
+        primary: "#71562C",
+        secondary: "#C9AE7B",
+        offwhite: "#F8F3ED",
       },
       fontFamily: {
-        'sans': ['Montserrat', 'sans-serif'], 
-        'titulo': ['Barlow', 'sans-serif'] 
-      }
+        sans: ["Montserrat", "sans-serif"],
+        titulo: ["Barlow", "sans-serif"],
+      },
     },
   },
   plugins: [],
