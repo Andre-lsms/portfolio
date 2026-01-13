@@ -1,17 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
-
-function slugify(id, text) {
-  return (id + " " + text)
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
 
 export function useProjects() {
   const [projects, setProjects] = useState([]);
@@ -22,39 +10,29 @@ export function useProjects() {
     async function fetchProjects() {
       try {
         setLoading(true);
+        setError(null);
 
-        // Agora puxa APENAS a tabela projects + suas mídias ordenadas
-        const { data, error } = await supabase.from("projects").select(`
+        const { data, error } = await supabase
+          .from("projects")
+          .select(
+            `
             id,
             title,
-            description,
-            media (
+            slug,
+            cover:projects_id_cover_fkey
+
+ (
               id,
-              type,
               url,
-              number_sort
+              type
             )
-          `);
+          `
+          )
+          .eq("id_enterprise", 2);
 
         if (error) throw error;
 
-        // Ordenar as mídias pelo number_sort no frontend,
-        // caso o Supabase não garanta essa ordenação automaticamente.
-        const formattedProjects = data.map((project) => {
-          const sortedMedias = (project.media || []).sort(
-            (a, b) => (a.number_sort || 0) - (b.number_sort || 0)
-          );
-
-          return {
-            ...project,
-            slug: slugify(project.id, project.title),
-            medias: sortedMedias, // mídias já ordenadas
-            first_media: sortedMedias[0] || null,
-            first_media_url: sortedMedias[0]?.url || null,
-          };
-        });
-
-        setProjects(formattedProjects);
+        setProjects(data || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -66,4 +44,60 @@ export function useProjects() {
   }, []);
 
   return { projects, loading, error };
+}
+
+/* ===============================
+   DETALHE DO PROJETO (PAGE)
+   title | description | midias
+================================ */
+export function useProjectBySlug(slug) {
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!slug) return;
+
+    async function fetchProject() {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const { data, error } = await supabase
+          .from("projects")
+          .select(
+            `
+            id,
+            title,
+            description,
+            media:midia_project_id_fkey
+
+ (
+              id,
+              url,
+              type
+            )
+          `
+          )
+          .eq("slug", slug, "id_enterprise", 2)
+          // .eq("id_enterprise", 1)
+          .single();
+
+        if (error) throw error;
+
+        setProject({
+          ...data,
+          midias: data.media || [],
+        });
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProject();
+  }, [slug]);
+
+  return { project, loading, error };
 }
