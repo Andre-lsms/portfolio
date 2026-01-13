@@ -25,12 +25,11 @@ function Home() {
 
   return (
     <div className="bg-[#F9F8F6] min-h-screen selection:bg-secondary selection:text-white font-sans text-primary">
-
       {/* HERO */}
       <section className="relative min-h-screen flex items-center px-6 lg:px-24 border-b border-primary/10">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 items-center gap-16">
-          
-          <div className="space-y-10">
+          {/* TEXTO */}
+          <div className="space-y-10 relative z-20">
             <h1 className="text-6xl sm:text-7xl lg:text-[9rem] font-titulo font-bold leading-[0.85] tracking-tight">
               André <br />
               <span className="text-secondary">Santos.</span>
@@ -51,7 +50,8 @@ function Home() {
             </button>
           </div>
 
-          <div className="relative hidden lg:block h-[115%] -top-16">
+          {/* IMAGEM */}
+          <div className="relative hidden lg:block h-[115%] -top-16 pointer-events-none">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F9F8F6] z-10" />
             <img
               src={myphoto}
@@ -61,7 +61,8 @@ function Home() {
           </div>
         </div>
 
-        <div className="absolute -bottom-28 left-1/2 -translate-x-1/2 text-[14vw] font-titulo font-bold opacity-[0.035] select-none whitespace-nowrap">
+        {/* TEXTO DE FUNDO */}
+        <div className="absolute -bottom-28 left-1/2 -translate-x-1/2 text-[14vw] font-titulo font-bold opacity-[0.035] select-none whitespace-nowrap pointer-events-none">
           SOBRE MIM — SOBRE MIM
         </div>
       </section>
@@ -69,16 +70,16 @@ function Home() {
       {/* TRAJETÓRIA */}
       <section className="bg-white py-28 lg:py-48 border-y border-primary/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-24 grid lg:grid-cols-2 gap-24 items-center">
-          
           <div className="space-y-12">
             <h2 className="text-4xl lg:text-6xl font-titulo font-bold">
               Trajetória
             </h2>
 
             <p className="text-lg text-primary/75 leading-relaxed">
-              Natural de Araçuaí – MG, minha jornada começou com a curiosidade de
-              dar vida a projetos pessoais. Essa inquietude me levou a dominar
-              ferramentas e processos criativos voltados à comunicação visual.
+              Natural de Araçuaí – MG, minha jornada começou com a curiosidade
+              de dar vida a projetos pessoais. Essa inquietude me levou a
+              dominar ferramentas e processos criativos voltados à comunicação
+              visual.
             </p>
 
             <div className="p-8 bg-offwhite border-l-4 border-secondary rounded-r-2xl shadow-sm">
@@ -103,9 +104,7 @@ function Home() {
                 <span className="block text-[10px] uppercase tracking-widest text-primary/50 mb-2">
                   {item.label}
                 </span>
-                <span className="font-bold text-sm uppercase">
-                  {item.val}
-                </span>
+                <span className="font-bold text-sm uppercase">{item.val}</span>
               </div>
             ))}
           </div>
@@ -115,15 +114,13 @@ function Home() {
       {/* FILOSOFIA */}
       <section className="py-28 lg:py-48 px-6 lg:px-24">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-20">
-          
           <h2 className="lg:col-span-5 text-4xl lg:text-6xl font-titulo font-bold leading-tight">
             Design é a ponte entre intenção e solução.
           </h2>
 
           <p className="lg:col-span-7 text-lg lg:text-2xl text-primary/65 leading-relaxed text-justify">
             Estética sem propósito é apenas decoração. Cada escolha visual deve
-            guiar o olhar, transmitir intenção e resolver problemas reais. Meu
-            trabalho une lógica, técnica e sensibilidade visual.
+            guiar o olhar, transmitir intenção e resolver problemas reais.
           </p>
         </div>
       </section>
@@ -131,7 +128,6 @@ function Home() {
       {/* TOOLKIT */}
       <section className="py-28 lg:py-48 px-6 lg:px-24 bg-white border-y border-primary/10">
         <div className="max-w-7xl mx-auto space-y-20">
-          
           <header>
             <span className="text-secondary font-bold uppercase tracking-[0.35em] text-xs">
               Softwares & Tecnologias
@@ -160,7 +156,7 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA
+      {/* CTA */}
       <section className="bg-secondary py-28 lg:py-40 px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-12">
           <h2 className="text-white text-4xl lg:text-7xl font-titulo font-bold leading-tight">
@@ -186,7 +182,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
