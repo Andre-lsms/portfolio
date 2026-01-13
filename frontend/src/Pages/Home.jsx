@@ -156,8 +156,7 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-secondary py-28 lg:py-40 px-6 text-center">
+      {/* <section className="bg-secondary py-28 lg:py-40 px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-12">
           <h2 className="text-white text-4xl lg:text-7xl font-titulo font-bold leading-tight">
             Vamos criar algo <span className="text-secondary">memorável?</span>
@@ -182,7 +181,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
