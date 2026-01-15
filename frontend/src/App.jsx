@@ -4,12 +4,13 @@ import Layout from "./Components/Layout";
 import Projects from "./Pages/Projects";
 import ProjectDetail from "./Pages/projectDetail";
 import Contato from "./Pages/Contato";
-// import Sobre from "./Pages/Sobre";
 import NotFoundPage from "./Pages/notFound";
 import ScrollReset from "./Pages/scrollReset";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 function App() {
   return (
     <>
+      <SpeedInsights />
       <BrowserRouter>
         <ScrollReset />
         <Routes>

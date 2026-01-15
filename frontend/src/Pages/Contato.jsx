@@ -76,26 +76,30 @@ function Contato() {
     <div className="w-full bg-[#F9F8F6] min-h-screen py-16 px-6 lg:px-24 flex items-center justify-center">
       <div className="w-full max-w-7xl mx-auto bg-white shadow-[0_50px_100px_rgba(0,0,0,0.05)] rounded-[2.5rem] overflow-hidden border border-primary/5">
         <div className="flex flex-col lg:flex-row">
-          
           {/* COLUNA ESQUERDA - INFO */}
           <div className="w-full lg:w-2/5 bg-primary text-white p-12 lg:p-20 flex flex-col justify-between">
             <header className="space-y-8">
               <div className="space-y-2">
-                <span className="uppercase tracking-[0.5em] text-[10px] font-bold text-white/40">Contato</span>
+                <span className="uppercase tracking-[0.5em] text-[10px] font-bold text-white/40">
+                  Contato
+                </span>
                 <h1 className="font-titulo font-bold text-5xl lg:text-7xl leading-none">
                   Vamos <br /> <span className="text-secondary">Criar.</span>
                 </h1>
               </div>
               <p className="font-sans text-lg text-white/60 leading-relaxed max-w-xs">
-                Estou disponível para novas colaborações e projetos que buscam clareza visual.
+                Estou disponível para novas colaborações e projetos que buscam
+                clareza visual.
               </p>
             </header>
 
             <div className="mt-20 space-y-10">
               <div className="space-y-4">
-                <span className="block text-[10px] uppercase tracking-widest text-white/30 font-bold">Fale Comigo</span>
+                <span className="block text-[10px] uppercase tracking-widest text-white/30 font-bold">
+                  Fale Comigo
+                </span>
                 <a
-                  href="https://wa.me/5531999999999"
+                  href="https://wa.me/5531999605165"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-6 text-xl font-bold hover:text-secondary transition-colors"
@@ -120,7 +124,6 @@ function Contato() {
               status={status}
             />
           </div>
-          
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="mt-6 text-center text-sm text-offwhite">
-        © {new Date().getFullYear()} As Design. Todos os direitos reservados.
+        © {new Date().getFullYear()} André Studio. Todos os direitos reservados.
       </div>
     </footer>
   );

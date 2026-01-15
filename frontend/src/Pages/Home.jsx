@@ -8,6 +8,7 @@ import capcut from "../assets/icons/capcut.png";
 import davinci from "../assets/icons/davinci.png";
 import affinity from "../assets/icons/Affinity.png";
 import myphoto from "../assets/foto.png";
+import { FaGithub } from "react-icons/fa";
 
 function Home() {
   const navigate = useNavigate();
@@ -29,16 +30,17 @@ function Home() {
       <section className="relative min-h-screen flex items-center px-6 lg:px-24 border-b border-primary/10">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 items-center gap-16">
           {/* TEXTO */}
-          <div className="space-y-10 relative z-20">
+          <div className="space-y-10 relative z-20 space-x-10">
             <h1 className="text-6xl sm:text-7xl lg:text-[9rem] font-titulo font-bold leading-[0.85] tracking-tight">
               André <br />
               <span className="text-secondary">Santos.</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-primary/70 max-w-xl leading-relaxed">
-              Designer Visual e Editor de Vídeo focado em criar{" "}
+              Designer visual e editor de vídeo com base em tecnologia.
+              Estudante de Sistemas de Informação, atuo na criação de{" "}
               <span className="text-primary font-medium italic">
-                experiências que comunicam com clareza.
+                soluções digitais que unem estética, lógica e propósito.
               </span>
             </p>
 
@@ -46,8 +48,9 @@ function Home() {
               onClick={() => navigate("/projetos")}
               className="px-10 py-5 bg-primary text-white rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-secondary transition-all shadow-2xl hover:-translate-y-1"
             >
-              Explorar Projetos
+              Explorar Designs
             </button>
+            
           </div>
 
           {/* IMAGEM */}
@@ -63,39 +66,57 @@ function Home() {
 
         {/* TEXTO DE FUNDO */}
         <div className="absolute -bottom-28 left-1/2 -translate-x-1/2 text-[14vw] font-titulo font-bold opacity-[0.035] select-none whitespace-nowrap pointer-events-none">
-          SOBRE MIM — SOBRE MIM
+          SOBRE — STUDIO — SOBRE — STUDIO
         </div>
       </section>
-
       {/* TRAJETÓRIA */}
       <section className="bg-white py-28 lg:py-48 border-y border-primary/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-24 grid lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-12">
             <h2 className="text-4xl lg:text-6xl font-titulo font-bold">
-              Trajetória
+              Caminho Profissional
             </h2>
 
             <p className="text-lg text-primary/75 leading-relaxed">
-              Natural de Araçuaí – MG, minha jornada começou com a curiosidade
-              de dar vida a projetos pessoais. Essa inquietude me levou a
-              dominar ferramentas e processos criativos voltados à comunicação
-              visual.
+              Natural de Araçuaí – MG, minha trajetória é guiada pela
+              curiosidade em entender como ideias se transformam em soluções
+              reais. Desde cedo, tecnologia e criação caminharam juntas no meu
+              processo de aprendizado. O primeiro contato com o design surgiu de
+              forma prática, por meio de projetos pessoais e freelas, onde
+              desenvolvi senso estético, clareza visual e atenção à experiência
+              do usuário. Com o tempo, o design deixou de ser apenas visual e
+              passou a ser também estratégico. Em paralelo, minha formação
+              técnica no IFNMG — Campus Araçuaí, como Técnico em Agrimensura,
+              fortaleceu habilidades como organização, raciocínio lógico e
+              análise estrutural, bases que hoje aplico no desenvolvimento de
+              sistemas. Atualmente, como estudante de Sistemas de Informação,
+              uno design e tecnologia para criar produtos digitais funcionais,
+              bem estruturados e orientados a resultados.
             </p>
 
             <div className="p-8 bg-offwhite border-l-4 border-secondary rounded-r-2xl shadow-sm">
               <p className="italic font-medium text-primary/80">
-                “Transformo conceitos abstratos em identidades visuais
-                memoráveis, equilibrando técnica e sensibilidade.”
+                "Transformo ideias em experiências digitais, unindo design,
+                lógica e propósito."
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
             {[
-              { label: "Localização", val: "João Monlevade, MG" },
-              { label: "Formação", val: "Sistemas de Informação" },
-              { label: "Experiência", val: "Designer & Editor" },
-              { label: "Foco", val: "Branding & Social" },
+              { label: "Base", val: "João Monlevade – MG" },
+              {
+                label: "Formação",
+                val: "Sistemas de Informação, Técnico em Agrimensura",
+              },
+              {
+                label: "Atuação",
+                val: "Design visual, identidade, edição de vídeo e desenvolvimento de soluções digitais.",
+              },
+              {
+                label: "Abordagem",
+                val: "Estética funcional, clareza visual e pensamento sistêmico.",
+              },
             ].map((item, idx) => (
               <div
                 key={idx}
@@ -110,78 +131,88 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* FILOSOFIA */}
-      <section className="py-28 lg:py-48 px-6 lg:px-24">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-20">
-          <h2 className="lg:col-span-5 text-4xl lg:text-6xl font-titulo font-bold leading-tight">
-            Design é a ponte entre intenção e solução.
+      <section className="py-32 lg:py-56 px-6 lg:px-24">
+        <div className="max-w-5xl mx-auto text-center space-y-12">
+          <h2 className="text-4xl lg:text-7xl font-titulo font-bold leading-none">
+            Design é método.
+            <br />
+            <span className="text-secondary italic">Tecnologia é meio.</span>
+            <br />
+            <span className="text-secondary font-light">
+              A experiência é o resultado.
+              <br />
+            </span>
           </h2>
-
-          <p className="lg:col-span-7 text-lg lg:text-2xl text-primary/65 leading-relaxed text-justify">
-            Estética sem propósito é apenas decoração. Cada escolha visual deve
-            guiar o olhar, transmitir intenção e resolver problemas reais.
-          </p>
+          {/* <div className="w-20 h-[2px] bg-secondary mx-auto"></div>
+          <p className="text-xl lg:text-3xl text-primary/60 font-light leading-relaxed max-w-3xl mx-auto">
+            Forma sem função não comunica
+          </p> */}
         </div>
       </section>
-
-      {/* TOOLKIT */}
-      <section className="py-28 lg:py-48 px-6 lg:px-24 bg-white border-y border-primary/10">
-        <div className="max-w-7xl mx-auto space-y-20">
-          <header>
-            <span className="text-secondary font-bold uppercase tracking-[0.35em] text-xs">
-              Softwares & Tecnologias
+      c{/* TOOLKIT */}
+      <section className="py-32 lg:py-56 px-6 lg:px-24 bg-white border-t border-primary/5">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 mb-20">
+          <header className="space-y-4">
+            <span className="text-secondary font-bold uppercase tracking-[0.4em] text-[10px]">
+              Stack Criativa & Técnica
             </span>
-            <h2 className="text-4xl lg:text-6xl font-titulo font-bold mt-4">
-              Arsenal Técnico
+            <h2 className="text-5xl lg:text-7xl font-titulo font-bold">
+              Arsenal Profissional.
             </h2>
           </header>
+          <p className="text-primary/40 font-bold uppercase tracking-widest text-[10px] border-b border-primary/10 pb-2">
+            Ferramentas de criação e edição
+          </p>
+        </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
-            {tools.map((tool) => (
-              <div key={tool.name} className="group text-center">
-                <div className="bg-offwhite aspect-square flex items-center justify-center rounded-2xl border border-primary/10 group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-500">
-                  <img
-                    src={tool.icon}
-                    alt={tool.name}
-                    className="w-10 lg:w-12 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-primary/50">
-                  {tool.name}
-                </p>
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
+          {tools.map((tool) => (
+            <div
+              key={tool.name}
+              className="group flex flex-col items-center gap-4"
+            >
+              <div className="bg-[#F9F8F6] w-full aspect-square flex items-center justify-center rounded-2xl border border-primary/5 group-hover:shadow-[0_20px_50px_rgba(113,86,44,0.1)] group-hover:-translate-y-3 transition-all duration-500">
+                <img
+                  src={tool.icon}
+                  alt={tool.name}
+                  className="w-10 lg:w-12 group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-            ))}
-          </div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/30 group-hover:text-primary transition-colors">
+                {tool.name}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
+      <section className="bg-primary py-32 lg:py-48 px-6 text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-0 text-[20vw] font-titulo font-bold text-white select-none whitespace-nowrap">
+            CONTATO — CONTATO
+          </div>
+        </div>
 
-      {/* <section className="bg-secondary py-28 lg:py-40 px-6 text-center">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="text-white text-4xl lg:text-7xl font-titulo font-bold leading-tight">
-            Vamos criar algo <span className="text-secondary">memorável?</span>
+        <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+          <h2 className="text-white text-5xl lg:text-8xl font-titulo font-bold leading-none">
+            Vamos construir algo?
           </h2>
 
-          <p className="text-white/70 text-lg max-w-xl mx-auto">
-            Disponível para novos projetos, parcerias e ideias criativas.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
             <button
               onClick={() => navigate("/contato")}
-              className="px-10 py-5 bg-secondary text-white font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform"
+              className="px-12 py-6 bg-secondary text-white font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-xl"
             >
-              Entrar em contato
+              Iniciar Conversa
             </button>
             <button
               onClick={() => navigate("/projetos")}
-              className="px-10 py-5 border border-white/30 text-white font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white hover:text-primary transition-all"
+              className="px-12 py-6 border border-white/20 text-white font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white hover:text-primary transition-all"
             >
-              Ver projetos
+              Explorar Portfólio
             </button>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
