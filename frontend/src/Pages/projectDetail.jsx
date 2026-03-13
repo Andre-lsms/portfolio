@@ -24,7 +24,6 @@ const getYoutubeEmbedUrl = (url) => {
     ? `https://www.youtube.com/embed/${match[1]}?autoplay=0&mute=0`
     : null;
 };
-// ... (mantenha os imports e helpers de vídeo do seu arquivo original)
 
 function ProjectDetail() {
   const { slug } = useParams();
@@ -33,26 +32,49 @@ function ProjectDetail() {
 
   if (loading)
     return (
-      <div className="text-center py-40 font-bold uppercase tracking-widest text-primary/30 text-[10px]">
-        Carregando Detalhes...
+      <div className="bg-[#F9F8F6] min-h-screen flex items-center justify-center font-bold uppercase tracking-widest text-primary/30 text-[10px]">
+        Carregando projeto...
       </div>
     );
+
   if (error || !project)
     return (
-      <div className="text-center py-40">
-        <h1 className="text-2xl font-titulo text-primary">Não encontrado.</h1>
+      <div className="bg-[#F9F8F6] min-h-screen flex flex-col items-center justify-center space-y-6">
+        <h1 className="text-4xl font-titulo font-bold text-primary">
+          Projeto não encontrado.
+        </h1>
+        <Link
+          to="/projetos"
+          className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary hover:text-primary transition-colors"
+        >
+          &larr; Voltar para a Galeria
+        </Link>
       </div>
     );
 
   const midias = project.midias || [];
 
   return (
-    <div className="bg-[#F9F8F6] min-h-screen py-12 px-6 lg:px-24">
+    <div className="bg-[#F9F8F6] min-h-screen py-16 px-6 lg:px-24 selection:bg-secondary selection:text-white">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-20 items-start">
-          {/* ÁREA DE MÍDIA - O PALCO */}
+        {/* --- NAVEGAÇÃO EDITORIAL --- */}
+        <nav className="mb-16 lg:mb-24 flex items-center justify-between">
+          <Link
+            to="/projetos"
+            className="group flex items-center gap-4 text-primary/40 hover:text-primary transition-all font-bold uppercase tracking-[0.3em] text-xl"
+          >
+            <span className="text-xl group-hover:-translate-x-2 transition-transform">
+              &larr;
+            </span>
+            Voltar
+          </Link>
+          <div className="h-[1px] flex-1 bg-primary/10 mx-8 lg:mx-16 hidden sm:block"></div>
+        </nav>
+
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+          {/* --- ÁREA DE MÍDIA (O PALCO) --- */}
           <div className="w-full lg:w-2/3 order-2 lg:order-1">
-            <div className="relative bg-white p-3 rounded-3xl shadow-2xl border border-primary/5 overflow-hidden">
+            <div className="relative bg-white p-2 sm:p-3 rounded-[2rem] shadow-2xl border border-primary/5 overflow-hidden group">
               {midias.length > 0 ? (
                 <Swiper
                   onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -60,13 +82,13 @@ function ProjectDetail() {
                   slidesPerView={1}
                   loop={midias.length > 1}
                   navigation
-                  pagination={{ clickable: true }}
-                  autoplay={{ delay: 9000 }}
+                  pagination={{ clickable: true, dynamicBullets: true }}
+                  autoplay={{ delay: 8000, disableOnInteraction: true }}
                   style={{
                     "--swiper-navigation-color": "#71562c",
                     "--swiper-pagination-color": "#71562c",
                   }}
-                  className="w-full h-[50vh] lg:h-[75vh] rounded-2xl overflow-hidden bg-black"
+                  className="w-full h-[50vh] sm:h-[60vh] lg:h-[75vh] rounded-3xl overflow-hidden bg-[#111]"
                 >
                   {midias.map((media) => {
                     const youtubeEmbed = getYoutubeEmbedUrl(media.url);
@@ -101,27 +123,34 @@ function ProjectDetail() {
                   })}
                 </Swiper>
               ) : (
-                <div className="w-full h-[50vh] flex items-center justify-center uppercase tracking-widest text-[10px] text-primary/20">
-                  Sem mídia
+                <div className="w-full h-[50vh] flex items-center justify-center uppercase tracking-widest text-[10px] text-primary/20 bg-[#f0f0f0] rounded-3xl">
+                  Mídia Indisponível
                 </div>
               )}
             </div>
           </div>
 
-          {/* ASIDE INFO - EDITORIAL */}
+          {/* --- ASIDE INFO (TEXTO FIXO E METADADOS) --- */}
           <aside className="w-full lg:w-1/3 order-1 lg:order-2 lg:sticky lg:top-12 space-y-12">
             <header className="space-y-6">
-              <div className="space-y-2">
-                <h1 className="font-titulo font-bold text-5xl lg:text-6xl text-primary leading-none">
+              <div className="space-y-4">
+       
+                <h1 className="font-titulo font-bold text-5xl lg:text-7xl text-primary leading-[0.9] tracking-tight">
                   {project.title}
                 </h1>
               </div>
               <div className="w-12 h-[2px] bg-secondary"></div>
             </header>
 
-            <p className="text-primary/70 font-sans text-lg leading-relaxed text-justify">
-              {project.description}
-            </p>
+            <div className="prose prose-lg text-primary/75 font-sans leading-relaxed text-justify">
+              <p>{project.description}</p>
+            </div>
+
+            {/* Metadados Técnicos (Dá o tom de "Agência/Studio") */}
+            <div className="pt-10 border-t border-primary/10 flex flex-col gap-5">
+              
+              
+            </div>
           </aside>
         </div>
       </div>
