@@ -1,46 +1,52 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-offwhite py-8">
-      <div className=" mx-auto px-10 flex flex-col md:flex-row items-center justify-between">
-        {/* Nome / Marca */}
-        <div className="mb-4 md:mb-0 text-center md:text-left">
-          <p className="text-sm text-offwhite">Desenvolvido por</p>
-          <h1 className="text-xl font-semibold">André Santos</h1>
+    <footer className="bg-primary text-offwhite py-10 px-6 lg:px-12 border-t border-white/5">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
+        
+        {/* Coluna Esquerda: Espaço invisível para manter a logo centralizada */}
+        <div className="hidden md:block w-full md:w-1/3"></div>
+
+        {/* Coluna Central: Logo */}
+        <div className="w-full md:w-1/3 flex justify-center">
+          <img
+            src="/logo_as_studio.png"
+            alt="logotipo da marca André Studio"
+            className="size-20 object-contain hover:scale-105 transition-transform duration-300"
+          />
         </div>
 
-        {/* Ícones Sociais */}
-        <div className="flex space-x-6 text-xl">
-          <a
-            href="https://github.com/Andre-lsms"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-offwhite transition-colors"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/andrelms"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-offwhite transition-colors"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="mailto:contato@asdesign.net.br"
-            className="hover:text-offwhite transition-colors"
-          >
-            <FaEnvelope />
-          </a>
-        </div>
-      </div>
+        {/* Coluna Direita: Ícones e Direitos */}
+        <div className="w-full md:w-1/3 flex flex-col items-center md:items-end gap-4">
+          
+          {/* Ícones Sociais */}
+          <div className="flex space-x-6 text-xl">
+            <a
+              href="https://github.com/Andre-lsms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-offwhite/70 hover:text-white transition-colors"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://linkedin.com/in/andrelms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-offwhite/70 hover:text-white transition-colors"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
 
-      {/* Copyright */}
-      <div className="mt-6 text-center text-sm text-offwhite">
-        © {new Date().getFullYear()} André Studio. Todos os direitos reservados.
+          {/* Copyright */}
+          <div className="text-sm text-offwhite/50 text-center md:text-right">
+            © {new Date().getFullYear()} André Studio.<br className="hidden md:block" /> Todos os direitos reservados.
+          </div>
+          
+        </div>
       </div>
     </footer>
   );

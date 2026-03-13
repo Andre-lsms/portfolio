@@ -14,8 +14,8 @@ function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-primary border-b-4 border-offwhite flex flex-col sm:flex-row sm:items-center sm:justify-between px-6 md:px-20 py-4">
       <div className="flex justify-center sm:justify-start w-full sm:w-auto mb-4 sm:mb-0">
         <img
-          src="/logo.svg"
-          alt="logotipo da marca"
+          src="/logo_as_design.svg"
+          alt="logotipo da marca As Design"
           onClick={handleClick}
           className="cursor-pointer h-14 sm:h-20 object-contain"
         />
