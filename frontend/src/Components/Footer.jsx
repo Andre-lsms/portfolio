@@ -3,10 +3,10 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-offwhite py-10 px-6 lg:px-12 border-t border-white/5">
-      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
+    <footer className="bg-primary text-offwhite py-10 px-6 lg:px-10 border-t border-white/5">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
         
-        {/* Coluna Esquerda: Espaço invisível para manter a logo centralizada */}
+        {/* Coluna Esquerda: Espaço invisível para manter a logo perfeitamente centralizada */}
         <div className="hidden md:block w-full md:w-1/3"></div>
 
         {/* Coluna Central: Logo */}
