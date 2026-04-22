@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabaseClient";
 
+// Hook para Listar
 export function useProjects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,46 +10,25 @@ export function useProjects() {
     async function fetchProjects() {
       try {
         setLoading(true);
-        setError(null);
+        const response = await fetch("/api/get-projects");
+        const data = await response.json();
 
-        const { data, error } = await supabase
-          .from("projects")
-          .select(
-            `
-            id,
-            title,
-            slug,
-            cover:projects_id_cover_fkey
-
- (
-              id,
-              url,
-              type
-            )
-          `
-          )
-          .eq("id_enterprise", 2);
-
-        if (error) throw error;
-
-        setProjects(data || []);
+        if (!response.ok)
+          throw new Error(data.error || "Erro ao buscar projetos");
+        setProjects(data);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     }
-
     fetchProjects();
   }, []);
 
   return { projects, loading, error };
 }
 
-/* ===============================
-   DETALHE DO PROJETO (PAGE)
-   title | description | midias
-================================ */
+// Hook para Detalhe
 export function useProjectBySlug(slug) {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -61,41 +40,18 @@ export function useProjectBySlug(slug) {
     async function fetchProject() {
       try {
         setLoading(true);
-        setError(null);
+        const response = await fetch(`/api/get-project-by-slug?slug=${slug}`);
+        const data = await response.json();
 
-        const { data, error } = await supabase
-          .from("projects")
-          .select(
-            `
-            id,
-            title,
-            description,
-            media:midia_project_id_fkey
-
- (
-              id,
-              url,
-              type
-            )
-          `
-          )
-          .eq("slug", slug, "id_enterprise", 2)
-          // .eq("id_enterprise", 1)
-          .single();
-
-        if (error) throw error;
-
-        setProject({
-          ...data,
-          midias: data.media || [],
-        });
+        if (!response.ok)
+          throw new Error(data.error || "Projeto não encontrado");
+        setProject(data);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     }
-
     fetchProject();
   }, [slug]);
 
