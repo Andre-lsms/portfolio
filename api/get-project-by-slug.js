@@ -27,7 +27,13 @@ export default async function handler(req, res) {
       )
       .eq("slug", slug)
       .eq("id_enterprise", 2)
+      .eq("media.is_hidden",false)
+      .order("number_sort", { foreignTable: 'media', ascending: true })
       .single();
+          //       .eq('slug', slug)
+          // .eq("media.is_hidden", false)
+          // .order('number_sort', referencedTable: 'media', ascending: true)
+          // .single();
 
     if (error) throw error;
 
