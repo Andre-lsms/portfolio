@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 export default async function handler(req, res) {
-  const { slug } = req.query; // Pega o slug da URL: /api/get-project-by-slug?slug=valor
+  const { slug } = req.query; // Pega o slug da URL: /api/get-product-by-slug?slug=valor
 
   if (!slug) return res.status(400).json({ error: "Slug is required" });
 
@@ -12,13 +12,13 @@ export default async function handler(req, res) {
 
   try {
     const { data, error } = await supabase
-      .from("projects")
+      .from("products")
       .select(
         `
         id,
         title,
         description,
-        media:midia_project_id_fkey (
+        media:media_id_product_fkey (
           id,
           url,
           type
@@ -27,13 +27,13 @@ export default async function handler(req, res) {
       )
       .eq("slug", slug)
       .eq("id_enterprise", 2)
-      .eq("media.is_hidden",false)
-      .order("number_sort", { foreignTable: 'media', ascending: true })
+      .eq("media.is_hidden", false)
+      .order("number_sort", { foreignTable: "media", ascending: true })
       .single();
-          //       .eq('slug', slug)
-          // .eq("media.is_hidden", false)
-          // .order('number_sort', referencedTable: 'media', ascending: true)
-          // .single();
+    //       .eq('slug', slug)
+    // .eq("media.is_hidden", false)
+    // .order('number_sort', referencedTable: 'media', ascending: true)
+    // .single();
 
     if (error) throw error;
 

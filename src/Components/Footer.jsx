@@ -5,22 +5,20 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-offwhite py-10 px-6 lg:px-10 border-t border-white/5">
       <div className=" mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
-        
         {/* Coluna Esquerda: Espaço invisível para manter a logo perfeitamente centralizada */}
         <div className="hidden md:block w-full md:w-1/3 bg-yellow-400"></div>
 
         {/* Coluna Central: Logo */}
         <div className="w-full md:w-1/3 flex justify-center ">
           <img
-            src="/logo_as_studio.png"
-            alt="logotipo da marca André Studio"
-            className="size-20 object-contain hover:scale-105 transition-transform duration-300"
+            src="/logo_as_studio_retangular.png"
+            alt="Logotipo André Studio"
+            className="h-12 md:h-16 w-auto object-contain hover:scale-105 transition-transform duration-300"
           />
         </div>
 
         {/* Coluna Direita: Ícones e Direitos */}
         <div className="w-full md:w-1/3 flex flex-col items-center md:items-end gap-4 ">
-          
           {/* Ícones Sociais */}
           <div className="flex space-x-6 text-xl">
             <a
@@ -43,9 +41,9 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-sm text-offwhite/50 text-center md:text-right">
-            © {new Date().getFullYear()} André Studio.<br className="hidden md:block" /> Todos os direitos reservados.
+            © {new Date().getFullYear()} André Studio.
+            <br className="hidden md:block" /> Todos os direitos reservados.
           </div>
-          
         </div>
       </div>
     </footer>

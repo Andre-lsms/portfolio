@@ -13,11 +13,12 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-primary border-b-4 border-offwhite flex flex-col sm:flex-row sm:items-center sm:justify-between px-6 md:px-20 py-4">
       <div className="flex justify-center sm:justify-start w-full sm:w-auto mb-4 sm:mb-0">
-        <img
-          src="/logo_as_design.svg"
-          alt="logotipo da marca As Design"
+       <img
+          src="/logo_as_studio_retangular.png"
+          alt="Logotipo André Studio"
           onClick={handleClick}
-          className="cursor-pointer h-14 sm:h-20 object-contain"
+          // Altura levemente reduzida (h-10/12) pois a logo retangular ocupa mais espaço horizontal
+          className="cursor-pointer h-10 sm:h-12 w-auto object-contain hover:scale-105 transition-transform duration-300"
         />
       </div>
 

@@ -8,13 +8,13 @@ export default async function handler(req, res) {
 
   try {
     const { data, error } = await supabase
-      .from("projects")
+      .from("products")
       .select(
         `
         id,
         title,
         slug,
-        cover:projects_id_cover_fkey (
+        cover:products_id_cover_fkey (
           id,
           url,
           type
