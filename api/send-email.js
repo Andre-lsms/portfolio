@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     // 1. E-MAIL INTERNO (O que você recebe)
     const data = await resend.emails.send({
       from: "Portfólio <site@andrestudio.com.br>",
-      to: ["contato.design@andrestudio.com.br"],
+      to: ["contato@andrestudio.com.br"],
       replyTo: email,
       subject: `[Novo Contato] ${assunto}`,
       html: `
@@ -97,7 +97,7 @@ export default async function handler(req, res) {
 
     // 2. E-MAIL DO CLIENTE (O que o cliente recebe)
     await resend.emails.send({
-      from: "AS Design <contato.design@andrestudio.com.br>",
+      from: "AS Design <design@andrestudio.com.br>",
       to: [email],
       subject: `Recebemos sua mensagem, ${name.split(" ")[0]}!`,
       html: `
